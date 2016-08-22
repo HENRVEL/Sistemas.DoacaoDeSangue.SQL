@@ -1,0 +1,30 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 21/08/2016	
+**/
+
+ALTER PROCEDURE ObterAgendaLaboratorio
+(
+	@ID_LAB int
+)
+AS
+BEGIN
+	SELECT 
+		ID,
+		ID_LAB,
+		DATA,
+		HORA
+	FROM [TB_CD_AGENDA_LABORATORIO_AGL] WITH(NOLOCK)
+	WHERE ID_LAB = @ID_LAB
+	AND DATA > GETDATE()
+	
+END
+GO
+
+
+
+
+

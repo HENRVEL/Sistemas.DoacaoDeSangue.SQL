@@ -1,0 +1,21 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 31/07/2016	
+**/
+
+ALTER PROCEDURE ExcluirLaboratorio
+(
+	 @ID   INT
+)
+AS 
+BEGIN
+
+	DELETE FROM [dbo].[TB_CD_LABORATORIO_CONVENIADO_LAB]
+    WHERE ID = @ID
+END
+GO
+
+

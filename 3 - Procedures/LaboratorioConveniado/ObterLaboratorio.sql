@@ -1,0 +1,51 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 31/07/2016	
+
+**/
+
+ALTER PROCEDURE ObterLaboratorio
+(
+	@ID INT NULL
+)
+AS 
+BEGIN
+	
+	IF (@ID IS NOT NULL)
+	BEGIN
+	  SELECT [ID]
+		  ,[NOME]
+		  ,[CIDADE]
+		  ,[ESTADO]
+		  ,[BAIRRO]
+		  ,[COMPLEMENTO]
+		  ,[CNPJ]
+		  ,[RESPONSAVEL]
+		  ,[EMAIL]
+		  ,[TELEFONE]
+		  ,[ID_SUS]
+		  ,[ATIVO]
+	   FROM [dbo].[TB_CD_LABORATORIO_CONVENIADO_LAB] WITH(NOLOCK)
+	   WHERE ID = @ID
+	END 
+	ELSE
+	BEGIN
+		SELECT [ID]
+			  ,[NOME]
+			  ,[CIDADE]
+			  ,[ESTADO]
+			  ,[BAIRRO]
+			  ,[COMPLEMENTO]
+			  ,[CNPJ]
+			  ,[RESPONSAVEL]
+			  ,[EMAIL]
+			  ,[TELEFONE]
+			  ,[ID_SUS]
+			  ,[ATIVO]
+		FROM [dbo].[TB_CD_LABORATORIO_CONVENIADO_LAB] WITH(NOLOCK)
+	END 
+END 
+GO 

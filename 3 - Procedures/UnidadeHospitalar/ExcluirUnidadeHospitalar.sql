@@ -1,0 +1,21 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 02/08/2016	
+**/
+
+CREATE PROCEDURE ExcluirUnidadeHospitalar
+(
+	 @ID   INT
+)
+AS 
+BEGIN
+
+	DELETE FROM [dbo].[TB_CD_UNIDADE_HOSPITALAR_UHP]
+    WHERE ID = @ID
+END
+GO
+
+

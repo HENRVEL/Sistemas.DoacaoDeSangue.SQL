@@ -1,0 +1,49 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 02/08/2016	
+
+**/
+
+ALTER PROCEDURE ObterUnidadeHospitalar
+(
+	@ID INT NULL
+)
+AS 
+BEGIN
+	
+	IF (@ID IS NOT NULL)
+	BEGIN
+	  SELECT [ID]
+		  ,[NOME]
+		  ,[CIDADE]
+		  ,[ESTADO]
+		  ,[BAIRRO]
+		  ,[COMPLEMENTO]
+		  ,[CNPJ]
+		  ,[RESPONSAVEL]
+		  ,[EMAIL]
+		  ,[TELEFONE]
+		  ,[ATIVO]
+	   FROM [dbo].[TB_CD_UNIDADE_HOSPITALAR_UHP] WITH(NOLOCK)
+	   WHERE ID = @ID
+	END 
+	ELSE
+	BEGIN
+		SELECT [ID]
+			  ,[NOME]
+			  ,[CIDADE]
+			  ,[ESTADO]
+			  ,[BAIRRO]
+			  ,[COMPLEMENTO]
+			  ,[CNPJ]
+			  ,[RESPONSAVEL]
+			  ,[EMAIL]
+			  ,[TELEFONE]
+			  ,[ATIVO]
+		FROM [dbo].[TB_CD_UNIDADE_HOSPITALAR_UHP] WITH(NOLOCK)
+	END 
+END 
+GO 

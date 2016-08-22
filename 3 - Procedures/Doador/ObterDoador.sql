@@ -1,0 +1,42 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 29/07/2016	
+
+**/
+
+ALTER PROCEDURE ObterDoador
+(
+	@ID INT NULL,
+	@CPF BIGINT NULL
+)
+AS 
+BEGIN
+	
+	IF (@ID IS NOT NULL) OR (@CPF IS NOT NULL)
+	BEGIN
+
+		SELECT [ID]
+		  ,[NOME]
+		  ,[SOBRENOME]
+		  ,[SEXO]
+		  ,[CPF]
+		  ,[CIDADE]
+		  ,[ESTADO]
+		  ,[BAIRRO]
+		  ,[COMPLEMENTO]
+		  ,[CEP]
+		  ,[EMAIL]
+		  ,[TELEFONE]
+		  ,[CELULAR]
+		  ,[TIPO_SANGUINEO]
+		  ,[FATOR_RH]
+		  ,[DOADOR_DE_SANGUE]
+		  ,[ULTIMA_DOACAO]
+		FROM [dbo].[TB_CD_DOADOR_DOA] WITH(NOLOCK)
+		WHERE ID = @ID OR CPF = @CPF
+	END 
+END 
+GO 

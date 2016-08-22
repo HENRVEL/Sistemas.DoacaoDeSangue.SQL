@@ -1,0 +1,37 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 02/08/2016	
+**/
+
+ALTER PROCEDURE CriarAgendaLaboratorio
+(
+	@ID_LAB int,
+	@DATA varchar(50),
+	@HORA varchar(50)
+)
+AS 
+BEGIN
+	DECLARE @VALIDA_DATA_HORA INT
+
+	SELECT @VALIDA_DATA_HORA = COUNT(1)
+		FROM [dbo].[TB_CD_AGENDA_LABORATORIO_AGL] WITH(NOLOCK)
+	WHERE [DATA] = @DATA
+	AND  [HORA] = @HORA
+
+	IF(@VALIDA_DATA_HORA = 0)
+	BEGIN
+		INSERT INTO [dbo].[TB_CD_AGENDA_LABORATORIO_AGL]
+			   ([ID_LAB]
+			   ,[DATA]
+			   ,[HORA])
+		 VALUES
+			   (@ID_LAB
+			   ,@DATA
+			   ,@HORA)
+	END
+END 
+GO 
+

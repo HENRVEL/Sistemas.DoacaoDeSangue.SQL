@@ -1,0 +1,19 @@
+USE [BD_DOACAO]
+GO
+
+/**
+Banco: BD_DOACAO
+Date: 31/07/2016	
+**/
+
+ALTER PROCEDURE ExcluirDoador
+(
+	 @ID   INT
+)
+AS 
+BEGIN
+
+	DELETE FROM [dbo].[TB_CD_DOADOR_DOA]
+	WHERE ID = @ID
+END 
+GO 
